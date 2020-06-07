@@ -39,3 +39,42 @@ for (var i = 0; i < pacientes.length; i++ ){
     }
 }
 
+botaoAdicionar.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    var form = document.querySelector("#form-adiciona");
+
+    // pega valores inseridos pelo usuario nos inputs
+   var nome = form.nome.value;
+   var peso = form.peso.value;
+   var altura = form.altura.value;
+   var gordura = form.gordura.value;
+
+    //cria a linha TR
+   var pacienteTr = document.createElement("tr");
+
+   //cria as colunas
+   var nomeTd = document.createElement("td");
+   var pesoTd = document.createElement("td");
+   var alturaTd = document.createElement("td");
+   var gorduraTd = document.createElement("td");
+   var imcTd = document.createElement("td");
+
+   //adiciona valores nas TDS (Valores inseridos nos inputs pelo usuario)
+   nomeTd.textContent = nome;
+   pesoTd.textContent = peso;
+   alturaTd.textContent = altura;
+   gorduraTd.textContent = gordura;
+
+   //associa as colunas(td's) na linha(tr)
+   pacienteTr.appendChild(nomeTd);
+    pacienteTr.appendChild(pesoTd);
+    pacienteTr.appendChild(alturaTd);
+    pacienteTr.appendChild(gorduraTd);
+
+    //adiciona a TR na tabela
+    var tabela = document.querySelector("#tabela-pacientes");
+
+    tabela.appendChild(pacienteTr);
+
+});
