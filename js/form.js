@@ -41,7 +41,9 @@ ex.:  nomeTd.textContent = paciente.nome;
     */
 
 
-    var pacienteTr = montaTr(paciente);
+// var pacienteTr = montaTr(paciente);
+//desativei acima pq passei comando p/funcao:adicionaPacienteNaTabela
+
 
     var erros = validaPaciente(paciente);
     console.log(erros);
@@ -51,16 +53,27 @@ ex.:  nomeTd.textContent = paciente.nome;
         return;
     }
 
-    //adiciona o paciente, a tr, na tabela
-    var tabela = document.querySelector("#tabela-pacientes");
+//adiciona o paciente, a tr, na tabela
+//      var tabela = document.querySelector("#tabela-pacientes");
+//desativei acima e abaixo pq passei comando p/funcao: adicionaPacienteNaTabela
+//      tabela.appendChild(pacienteTr);
 
-    tabela.appendChild(pacienteTr);
+    adicionaPacienteNaTabela(paciente);
 
     form.reset();
     var mensagensErro = document.querySelector("#mensagens-erro");
     mensagensErro.innerHTML = "";
 
 });
+
+function adicionaPacienteNaTabela(paciente){
+    var pacienteTr = montaTr(paciente);
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
+
+}
+
+
 
 function exibeMensagensDeErro (erros){
     var ul = document.querySelector ("#mensagens-erro");
